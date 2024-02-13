@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="gugudan">if 문 사용해보기</h1>
+    출력할 단수 : <input type="text" id="num" placeholder="여기에 입력하세요."><br>
+    <button onclick="runGugudan()">확인</button>
+
+    <script>
+        function runGugudan() {
+            var strN = document.getElementById("num").value;
+            n = Number(strN);
+            if (n < 2 || n > 9) {
+                alert("2단 부터 9단까지만 출력할 수 있습니다.")
+                return; 
+            }
+
+            var gugudanHead = document.getElementById("gugudan");
+            if (gugudanHead !== null) {
+                gugudanHead.remove();
+            }
+
+            document.write("<h1>구구단 " + strN + "단 구현</h1>")
+            // for(i = 1; i <= 9; i++) {
+            //     document.write(n + " * " + i + " = " + n * i + "<br>");
+            // }
+            var i = 1;
+            while (i <= 9) {
+                document.write(n + " * " + i + " = " + n * i + "<br>");
+                i++;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
