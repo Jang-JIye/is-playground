@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="gugudan">구구단 X단 만들기</h1>
+    <script>
+        var strN = prompt("몇단을 출력할까요?");
+        n = Number(strN);
+
+        var gugudanHead = document.getElementById("gugudan");
+        if (gugudanHead !== null) {
+            gugudanHead.remove();
+        }
+        
+        document.write("<h1>구구단 " + strN + "단 구현</h1>")
+        for(i = 1; i <= 9; i++) {
+            document.write(n + " * " + i + " = " + n * i + "<br>");
+        }
+    </script>
+    
+</body>
+</html>
