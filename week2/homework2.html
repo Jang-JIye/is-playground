@@ -1,0 +1,58 @@
+// 연습문제 3.
+// 1 ~ 10000 사이의 소수를 화면에 출력하는 프로그램을 작성해 봅시다.
+// - html + js 로 작성할 것
+// - 객체와 메소드를 사용해 볼 것
+// - 최대한 예쁘게 만들어 볼 것
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>1 ~ 10000 사이의 소수 찾기</h1>
+    <div id="result"></div>
+    <script>
+        var numbers = {};
+        numbers.all = [];
+        numbers.prime = [];
+
+        numbers.isPrime = function (number) {
+            for (i = 2; i < number; i++) {
+                if (number % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        numbers.addAllNumber = function (max_num) {
+            for (var i = 2; i <= max_num; i++) {
+                this.all.push(i);
+            }
+        };
+        numbers.calcPrimes = function () {
+            for (var i = 0; i < this.all.length; i++) {
+                var n = this.all[i]
+                if (this.isPrime(n)) {
+                    this.prime.push(n);
+                }
+            }
+        };
+        numbers.getAllPrimeNumbers = function () {
+            var ret = "";
+            ret += "<h2> 전체 소수의 갯수 : " + this.prime.length + "</h2>\n";
+            for (var i = 0; i < this.prime.length; i++) {
+                ret += (i + 1) + "번째 소수" + this.prime[i] + "<br>\n"
+            }
+            return ret;
+        };
+
+        numbers.addAllNumber(10000);
+        numbers.calcPrimes();
+        document.getElementById("result").innerHTML = numbers.getAllPrimeNumbers();
+
+    </script>
+</body>
+
+</html>
